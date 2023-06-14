@@ -1,0 +1,75 @@
+<p>user-view works!</p>
+
+<p>
+    Current Page: {{currentPage}}
+</p>
+
+<p>
+<button (click)= "pageChange(-1)"> Previous </button>
+&nbsp;
+&nbsp;
+<button (click)= "pageChange(1)"> Next </button>
+</p>
+
+
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Avatar</th>
+        <th>index</th>
+        <th> </th>
+        <th> </th>
+        
+        <!-- Add more columns if needed -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items let i = index">
+        <td>{{ item.id }}</td>
+        <td>{{ item.email }}</td>
+        <td [ngClass]="{'active': item.canEdit, 'inactive': !item.canEdit}" 
+            [contentEditable]="item.canEdit">{{ item.first_name }}</td>
+        <td [ngClass]="{'active': item.canEdit, 'inactive': !item.canEdit}" 
+            [contentEditable]="item.canEdit">{{ item.last_name }}</td>
+        <td><img src="{{item.avatar}}"></td>
+        <td><img (click)= "deleteItem(item)" src="https://img.icons8.com/?size=32&id=102350&format=png"></td>
+        <td *ngIf="!item.canEdit"><img (click)= "editItem(item)" 
+                src="https://img.icons8.com/?size=32&id=48387&format=png"></td>
+        <td *ngIf="item.canEdit"><img (click)= "saveItem(item, i)" 
+                src="https://img.icons8.com/?size=32&id=47829&format=png">
+                &nbsp;
+                &nbsp;
+                <img (click)= "cancelItem(item)" 
+                src="https://img.icons8.com/?size=32&id=54401&format=png">
+            </td>
+
+        <!-- Bind other item properties to respective columns -->
+      </tr>
+      <tr>
+        <td><input type="text" #id></td>
+        <td><input type="text" #email></td>
+        <td><input type="text" #first_name></td>
+        <td><input type="text" #last_name></td>
+        <td><input type="text" #avatar></td>
+        <td></td>
+        <td></td>
+        <td> <button (click)="addItem(id.value, email.value, first_name.value, 
+                            last_name.value, avatar.value)"> ADD ROW </button></td>
+        
+      </tr>
+    </tbody>
+  </table>
+
+ <button (click)="printContent()">Print</button>
+  
+  
+
+
+
+
+
+

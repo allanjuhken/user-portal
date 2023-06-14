@@ -1,0 +1,11 @@
+<p>token-reader works!</p>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+    <label>email:</label>
+    <input type="text" formControlName="email">
+    <br>
+    <label>password:</label>
+    <input type="password" formControlName="password">
+    <br>
+    <button type="submit">Submit</button>
+  </form>

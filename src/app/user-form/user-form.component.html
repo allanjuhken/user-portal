@@ -1,0 +1,22 @@
+<p>user-form works!</p>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+    <label>Name:</label>
+    <input type="text" formControlName="name">
+    <br>
+    <label>Job:</label>
+    <input type="text" formControlName="job">
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <br/>
+  <br/>
+  
+  
+  <button (click)="handleClick()">Load user</button>
+
+  <br/>
+  
+
+  

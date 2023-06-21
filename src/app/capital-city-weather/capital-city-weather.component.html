@@ -1,0 +1,21 @@
+<input name="search" (change)="search()" [(ngModel)]="current_search">;
+
+<table>
+    <thead>
+        <tr>
+            <th>Nr. </th>
+            <th>Country name</th>
+            <th>Capital city</th>
+            <th>Temperature</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let weather_record of weather_records let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ weather_record.country_name }}</td>
+            <td>{{ weather_record.capital_city }}</td>
+            <td>{{ weather_record.temperature }}</td>
+            <td> <img (click)="deleteItem(weather_record)" src="https://img.icons8.com/?size=32&id=102350&format=png"></td>
+        </tr>
+    </tbody>
+</table>

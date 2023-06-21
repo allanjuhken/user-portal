@@ -10,13 +10,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TokenReaderComponent } from './token-reader/token-reader.component';
 import { UserViewComponent } from './user-view/user-view.component';
+import { CountriesViewComponent } from './countries-view/countries-view.component';
+import { CapitalCityWeatherComponent } from './capital-city-weather/capital-city-weather.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UserFormComponent,
     TokenReaderComponent,
-    UserViewComponent
+    UserViewComponent,
+    CountriesViewComponent,
+    CapitalCityWeatherComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -24,6 +30,7 @@ import { UserViewComponent } from './user-view/user-view.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

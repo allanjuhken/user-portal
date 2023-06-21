@@ -1,0 +1,26 @@
+<button (click)="loadCountriesClick()"> Load Countries </button>
+<button (click)="printCountries()"> Print Countries </button>
+<br/>
+<input name="search" (change)="search()" [(ngModel)]="current_search">
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Nr. </th>
+            <th>Country name</th>
+            <th>Capital city</th>
+            <th>Currency</th>
+            <th> Travel comment...</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let country of countries let i = index">
+            <td>{{ i+1 }}</td>
+            <td>{{ country.country_name }}</td>
+            <td>{{ country.capital_city }}</td>
+            <td>{{ country.currency }}</td>
+            <td> <input name="comment{{i}}" [(ngModel)]="country.comment"> </td>
+        </tr>
+    </tbody>
+</table>

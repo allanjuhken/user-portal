@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup} from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 const API_URL = 'https://reqres.in';
 const headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -11,10 +10,9 @@ const headers = new HttpHeaders().set('Content-Type', 'application/json');
   templateUrl: './token-reader.component.html',
   styleUrls: ['./token-reader.component.css']
 })
-
 export class TokenReaderComponent {
-
-  userForm : FormGroup;
+  
+  userForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient) {
     this.userForm = this.formBuilder.group({
@@ -24,11 +22,10 @@ export class TokenReaderComponent {
     });
   }
 
-  onSubmit() {
+  onSubmit(){
 
-    // Send the POST request
     const formData = JSON.stringify(this.userForm.value);
-      console.log(formData); // Display the JSON data in the console 
+      console.log(formData); // Display the JSON data in the console
       this.http.post(API_URL + '/api/register', formData)
       this.http.post(API_URL + '/api/register', formData, { headers })
     .subscribe({
@@ -42,4 +39,5 @@ export class TokenReaderComponent {
       }
     });
   }
+
 }
